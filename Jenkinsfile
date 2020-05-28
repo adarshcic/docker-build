@@ -4,7 +4,11 @@ pipeline {
 
     stages {
         stage('Deploy') {
-            openshiftBuild(namespace: 'don-elk-stack', buildConfig: 'myapp', showBuildLogs: 'true')
+            steps {
+                script {
+                    openshiftBuild(namespace: 'don-elk-stack', buildConfig: 'myapp', showBuildLogs: 'true')
+                }
+            }
         }
     }
 }
